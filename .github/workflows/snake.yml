@@ -18,14 +18,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Generate snake SVGs (b1tr0n1n palette)
-        uses: Platane/snk@v3
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/snake-dark.svg?color_snake=#c9a227&color_dots=#161410,#3d362c,#5c4c1a,#8b7320,#c9a227
-            dist/snake-light.svg?color_snake=#8b7320&color_dots=#ebe6da,#d8cdb0,#c2a967,#a88a24,#8b7320
-
       - name: Generate stats card
         uses: stats-organization/github-readme-stats-action@v2
         with:
@@ -41,6 +33,14 @@ jobs:
           options: username=${{ github.repository_owner }}&layout=compact&langs_count=6&bg_color=0a0908&title_color=c9a227&text_color=c8bda0&border_color=2a2620&border_radius=0&custom_title=Languages
           path: dist/top-langs.svg
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate snake SVGs (b1tr0n1n palette)
+        uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/snake-dark.svg?color_snake=#c9a227&color_dots=#161410,#3d362c,#5c4c1a,#8b7320,#c9a227
+            dist/snake-light.svg?color_snake=#8b7320&color_dots=#ebe6da,#d8cdb0,#c2a967,#a88a24,#8b7320
 
       - name: Publish to output branch
         uses: crazy-max/ghaction-github-pages@v4
