@@ -1,6 +1,7 @@
-# Builds the gold contribution snake and publishes it to the `output` branch.
+# Builds the gold contribution snake and the stats cards, and publishes them to the `output` branch.
+# Stats are generated here because the public github-readme-stats instance is paused (503).
 # Runs daily, on every push to main, and on demand (Actions tab -> Run workflow).
-name: Generate contribution snake
+name: Generate snake and stats cards
 
 on:
   schedule:
@@ -24,6 +25,22 @@ jobs:
           outputs: |
             dist/snake-dark.svg?color_snake=#c9a227&color_dots=#161410,#3d362c,#5c4c1a,#8b7320,#c9a227
             dist/snake-light.svg?color_snake=#8b7320&color_dots=#ebe6da,#d8cdb0,#c2a967,#a88a24,#8b7320
+
+      - name: Generate stats card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&bg_color=0a0908&title_color=c9a227&text_color=c8bda0&icon_color=8b7320&border_color=2a2620&ring_color=c9a227&border_radius=0&custom_title=Field%20Report
+          path: dist/stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate top languages card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=${{ github.repository_owner }}&layout=compact&langs_count=6&bg_color=0a0908&title_color=c9a227&text_color=c8bda0&border_color=2a2620&border_radius=0&custom_title=Languages
+          path: dist/top-langs.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish to output branch
         uses: crazy-max/ghaction-github-pages@v4

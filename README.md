@@ -17,8 +17,8 @@
 
 <img src="./assets/section-04.svg" width="100%" alt="04 — Telemetry" />
 
-<img src="https://github-readme-stats.vercel.app/api?username=B1tR0n1n&show_icons=true&include_all_commits=true&bg_color=0a0908&title_color=c9a227&text_color=c8bda0&icon_color=8b7320&border_color=2a2620&ring_color=c9a227&border_radius=0&custom_title=Field%20Report" height="170" alt="GitHub stats" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=B1tR0n1n&layout=compact&langs_count=6&bg_color=0a0908&title_color=c9a227&text_color=c8bda0&border_color=2a2620&border_radius=0&custom_title=Languages" height="170" alt="Top languages" />
+<img src="https://raw.githubusercontent.com/B1tR0n1n/B1tR0n1n/output/stats.svg" height="170" alt="GitHub stats" />
+<img src="https://raw.githubusercontent.com/B1tR0n1n/B1tR0n1n/output/top-langs.svg" height="170" alt="Top languages" />
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/B1tR0n1n/B1tR0n1n/output/snake-dark.svg" />
